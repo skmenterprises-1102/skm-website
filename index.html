@@ -1,219 +1,615 @@
-export default function SKMAutoPartsWebsite() { const inventory = [ { name: '2017 Nissan Rogue S', price: '$6,999', miles: '160,000 miles', note: 'Clean daily-driver SUV with strong value.', }, { name: '2014 Acura RDX Tech 4WD', price: '$5,499', miles: '227,000 miles', note: 'Premium SUV priced to move fast.', }, { name: '2019 Kia Forte LXS', price: '$7,900', miles: '125,000 miles', note: 'Modern sedan with attractive resale appeal.', }, ];
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SKM Enterprises Group</title>
+  <meta name="description" content="SKM Enterprises Group - Used cars, auto parts and imports in Paterson, New Jersey." />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-const features = [ 'Used Cars', 'Auto Parts', 'Imports', 'Fast WhatsApp Contact', ];
+    body {
+      font-family: Arial, sans-serif;
+      background: #000;
+      color: #fff;
+      line-height: 1.5;
+    }
 
-const categories = [ { title: 'New Arrivals', text: 'Show your newest inventory first so buyers immediately see fresh options.', }, { title: 'Cars Under $6000', text: 'A high-converting section for budget-focused buyers in New Jersey.', }, { title: 'Auto Parts & Sourcing', text: 'Promote available parts, special orders, and import support in one place.', }, ];
+    a {
+      text-decoration: none;
+    }
 
-return ( <div className="min-h-screen bg-black text-white"> <section className="relative overflow-hidden border-b border-red-900/40 bg-gradient-to-br from-black via-zinc-950 to-red-950"> <div className="absolute inset-0 opacity-30"> <div className="absolute -top-24 right-0 h-80 w-80 rounded-full bg-red-600 blur-3xl" /> <div className="absolute bottom-0 left-0 h-72 w-72 rounded-full bg-red-900 blur-3xl" /> </div>
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
 
-<div className="relative mx-auto max-w-7xl px-6 py-14 md:px-10 md:py-20">
-      <div className="grid items-center gap-10 md:grid-cols-[1.15fr_0.85fr]">
-        <div>
-          <div className="mb-6 flex items-center gap-4">
-            <img
-              src="/skm-logo.png"
-              alt="SKM Enterprises Group logo"
-              className="h-20 w-20 rounded-2xl object-contain ring-1 ring-red-700/40"
-            />
-            <div>
-              <p className="text-sm uppercase tracking-[0.28em] text-red-300">Paterson, New Jersey</p>
-              <h1 className="mt-1 text-4xl font-black tracking-tight md:text-6xl">
-                SKM Enterprises Group
-              </h1>
-            </div>
-          </div>
+    .hero {
+      background: linear-gradient(135deg, #000 0%, #111 60%, #2b0000 100%);
+      padding: 60px 0 50px;
+      border-bottom: 1px solid #2a2a2a;
+    }
 
-          <p className="max-w-2xl text-lg leading-8 text-zinc-300">
-            Used cars, auto parts, and import solutions with a bold automotive identity.
-            Built to help you look professional, attract buyers, and turn inventory faster.
-          </p>
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 30px;
+      align-items: center;
+    }
 
-          <div className="mt-6 flex flex-wrap gap-3">
-            {features.map((item) => (
-              <span
-                key={item}
-                className="rounded-full border border-zinc-800 bg-zinc-900/70 px-4 py-2 text-sm text-zinc-200"
-              >
-                {item}
-              </span>
-            ))}
-          </div>
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
 
-          <div className="mt-8 flex flex-wrap gap-4">
-            <a
-              href="#inventory"
-              className="rounded-2xl bg-red-600 px-6 py-3 font-semibold text-white shadow-lg shadow-red-950/40 transition hover:scale-[1.02]"
-            >
-              View Inventory
-            </a>
-            <a
-              href="https://wa.me/19734770621"
-              className="rounded-2xl border border-zinc-700 bg-zinc-950 px-6 py-3 font-semibold text-zinc-100 transition hover:border-red-500"
-            >
-              Contact on WhatsApp
-            </a>
-          </div>
+    .logo-wrap img {
+      width: 78px;
+      height: 78px;
+      object-fit: contain;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 0, 0, 0.3);
+      background: #050505;
+    }
 
-          <div className="mt-8 grid max-w-2xl gap-4 md:grid-cols-3">
-            <div className="rounded-3xl border border-zinc-800 bg-black/60 p-5">
-              <p className="text-sm text-zinc-400">Location</p>
-              <p className="mt-2 font-semibold">105 N 10th St, Paterson, NJ 07522</p>
-            </div>
-            <div className="rounded-3xl border border-zinc-800 bg-black/60 p-5">
-              <p className="text-sm text-zinc-400">Phone / WhatsApp</p>
-              <p className="mt-2 font-semibold">973-477-0621</p>
-            </div>
-            <div className="rounded-3xl border border-zinc-800 bg-black/60 p-5">
-              <p className="text-sm text-zinc-400">Best For</p>
-              <p className="mt-2 font-semibold">Fast-turn used car sales</p>
-            </div>
-          </div>
-        </div>
+    .eyebrow {
+      color: #ff5a5a;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 12px;
+      margin-bottom: 6px;
+    }
 
-        <div>
-          <div className="rounded-[2rem] border border-zinc-800 bg-zinc-950/85 p-5 shadow-2xl shadow-black/40 backdrop-blur">
-            <div className="mb-4 flex items-center justify-between">
-              <div>
-                <p className="text-sm uppercase tracking-[0.24em] text-red-400">Dealer-style layout</p>
-                <h2 className="mt-1 text-2xl font-bold">Pro Homepage Preview</h2>
-              </div>
-              <span className="rounded-full border border-red-800/50 bg-red-950 px-3 py-1 text-xs text-red-200">
-                Version Pro
-              </span>
-            </div>
+    h1 {
+      font-size: 52px;
+      line-height: 1.05;
+      color: #fff;
+      margin-bottom: 18px;
+    }
 
-            <div className="space-y-4">
-              <div className="rounded-3xl border border-zinc-800 bg-black p-5">
-                <p className="text-sm text-zinc-400">New Arrivals</p>
-                <p className="mt-2 text-lg font-semibold">Fresh inventory section for your latest cars</p>
-              </div>
-              <div className="rounded-3xl border border-zinc-800 bg-black p-5">
-                <p className="text-sm text-zinc-400">Budget Buyers</p>
-                <p className="mt-2 text-lg font-semibold">Dedicated “Cars Under $6000” section</p>
-              </div>
-              <div className="rounded-3xl border border-zinc-800 bg-black p-5">
-                <p className="text-sm text-zinc-400">Direct Sales</p>
-                <p className="mt-2 text-lg font-semibold">WhatsApp-first contact flow for fast leads</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    .hero p.main-text {
+      color: #ddd;
+      font-size: 18px;
+      max-width: 680px;
+      margin-bottom: 22px;
+    }
 
-  <section className="mx-auto max-w-7xl px-6 py-16 md:px-10">
-    <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .tag {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: #111;
+      border: 1px solid #2a2a2a;
+      color: #ddd;
+      font-size: 14px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 26px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 22px;
+      border-radius: 14px;
+      font-weight: bold;
+      transition: 0.2s ease;
+    }
+
+    .btn-red {
+      background: #ff1a1a;
+      color: #fff;
+    }
+
+    .btn-dark {
+      background: #111;
+      border: 1px solid #333;
+      color: #fff;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .info-box {
+      background: rgba(10, 10, 10, 0.8);
+      border: 1px solid #2a2a2a;
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .info-box span {
+      color: #aaa;
+      font-size: 13px;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .info-box strong {
+      color: #fff;
+      font-size: 15px;
+    }
+
+    .pro-card {
+      background: rgba(12, 12, 12, 0.9);
+      border: 1px solid #2a2a2a;
+      border-radius: 28px;
+      padding: 24px;
+    }
+
+    .pro-card .mini {
+      color: #ff5a5a;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+
+    .pro-card h2 {
+      font-size: 28px;
+      margin-bottom: 18px;
+    }
+
+    .pro-item {
+      background: #070707;
+      border: 1px solid #242424;
+      border-radius: 20px;
+      padding: 18px;
+      margin-bottom: 12px;
+    }
+
+    .pro-item span {
+      color: #aaa;
+      font-size: 13px;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .pro-item strong {
+      font-size: 18px;
+    }
+
+    section {
+      padding: 60px 0;
+    }
+
+    .section-top {
+      margin-bottom: 28px;
+    }
+
+    .section-top .eyebrow {
+      margin-bottom: 8px;
+    }
+
+    .section-top h2 {
+      font-size: 38px;
+      margin-bottom: 12px;
+    }
+
+    .section-top p {
+      color: #bbb;
+      max-width: 780px;
+    }
+
+    .cards-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .feature-card {
+      background: #0c0c0c;
+      border: 1px solid #242424;
+      border-radius: 26px;
+      padding: 24px;
+    }
+
+    .feature-card h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .feature-card p {
+      color: #ccc;
+    }
+
+    .inventory-section {
+      background: #090909;
+      border-top: 1px solid #1d1d1d;
+      border-bottom: 1px solid #1d1d1d;
+    }
+
+    .inventory-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .car-card {
+      background: #000;
+      border: 1px solid #252525;
+      border-radius: 28px;
+      overflow: hidden;
+    }
+
+    .car-image {
+      height: 220px;
+      background: linear-gradient(135deg, #1a1a1a, #050505);
+      position: relative;
+      padding: 18px;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .badge {
+      background: #2a0000;
+      color: #ffb3b3;
+      border: 1px solid rgba(255, 0, 0, 0.25);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+    }
+
+    .car-body {
+      padding: 22px;
+    }
+
+    .car-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .car-top h3 {
+      font-size: 22px;
+    }
+
+    .miles {
+      color: #aaa;
+      margin-top: 6px;
+    }
+
+    .price {
+      color: #ff2e2e;
+      font-size: 28px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .car-note {
+      color: #ccc;
+      margin-bottom: 16px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 24px;
+    }
+
+    .contact-box,
+    .upgrade-box {
+      border-radius: 28px;
+      padding: 28px;
+    }
+
+    .contact-box {
+      background: #0d0d0d;
+      border: 1px solid #262626;
+    }
+
+    .upgrade-box {
+      background: linear-gradient(180deg, #2a0000 0%, #050505 100%);
+      border: 1px solid rgba(255, 0, 0, 0.18);
+    }
+
+    .contact-info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .contact-info {
+      background: #000;
+      border: 1px solid #242424;
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .contact-info span {
+      color: #aaa;
+      display: block;
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    .upgrade-box ul {
+      margin: 20px 0 24px 18px;
+      color: #eee;
+    }
+
+    .upgrade-box li {
+      margin-bottom: 10px;
+    }
+
+    .footer {
+      padding: 22px 0 50px;
+      color: #888;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .floating-whatsapp {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      background: #ff1a1a;
+      color: #fff;
+      padding: 14px 18px;
+      border-radius: 999px;
+      font-weight: bold;
+      box-shadow: 0 10px 30px rgba(255, 0, 0, 0.25);
+      z-index: 999;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .contact-grid,
+      .cards-3,
+      .inventory-grid,
+      .info-grid,
+      .contact-info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 38px;
+      }
+
+      .section-top h2 {
+        font-size: 30px;
+      }
+
+      .price {
+        font-size: 24px;
+      }
+
+      .logo-wrap {
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="container hero-grid">
       <div>
-        <p className="text-sm uppercase tracking-[0.24em] text-red-400">Why this version helps</p>
-        <h2 className="mt-2 text-3xl font-bold md:text-4xl">Built to look more like a real dealer website</h2>
-      </div>
-      <p className="max-w-2xl text-zinc-400">
-        This upgraded version is designed for trust, faster lead generation, and better presentation of your inventory and services.
-      </p>
-    </div>
-
-    <div className="grid gap-5 md:grid-cols-3">
-      {categories.map((item) => (
-        <div key={item.title} className="rounded-[2rem] border border-zinc-800 bg-zinc-950 p-6">
-          <div className="mb-4 h-11 w-11 rounded-2xl bg-red-600/15 ring-1 ring-red-700/30" />
-          <h3 className="text-xl font-bold">{item.title}</h3>
-          <p className="mt-3 leading-7 text-zinc-300">{item.text}</p>
-        </div>
-      ))}
-    </div>
-  </section>
-
-  <section className="border-y border-zinc-900 bg-zinc-950/60" id="inventory">
-    <div className="mx-auto max-w-7xl px-6 py-16 md:px-10">
-      <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-        <div>
-          <p className="text-sm uppercase tracking-[0.24em] text-red-400">Inventory</p>
-          <h2 className="mt-2 text-3xl font-bold md:text-4xl">Featured Vehicles</h2>
-        </div>
-        <div className="rounded-2xl border border-zinc-800 bg-black px-4 py-3 text-sm text-zinc-300">
-          Replace these demo cards with your real photos and current pricing.
-        </div>
-      </div>
-
-      <div className="grid gap-6 md:grid-cols-3">
-        {inventory.map((car) => (
-          <div key={car.name} className="overflow-hidden rounded-[2rem] border border-zinc-800 bg-black shadow-lg shadow-black/20">
-            <div className="flex h-56 items-end justify-start bg-gradient-to-br from-zinc-800 via-zinc-950 to-black p-5">
-              <span className="rounded-full border border-red-700/40 bg-red-950 px-3 py-1 text-xs text-red-200">
-                Available Now
-              </span>
-            </div>
-            <div className="p-6">
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <h3 className="text-xl font-bold">{car.name}</h3>
-                  <p className="mt-2 text-zinc-400">{car.miles}</p>
-                </div>
-                <span className="text-2xl font-black text-red-400">{car.price}</span>
-              </div>
-              <p className="mt-4 leading-7 text-zinc-300">{car.note}</p>
-              <a
-                href="https://wa.me/19734770621"
-                className="mt-5 inline-flex rounded-2xl bg-red-600 px-5 py-3 font-semibold text-white transition hover:scale-[1.02]"
-              >
-                Ask on WhatsApp
-              </a>
-            </div>
+        <div class="logo-wrap">
+          <img src="https://i.imgur.com/4I0bV6h.png" alt="SKM Enterprises Group logo">
+          <div>
+            <div class="eyebrow">Paterson, New Jersey</div>
+            <h1>SKM Enterprises Group</h1>
           </div>
-        ))}
+        </div>
+
+        <p class="main-text">
+          Used cars, auto parts, and import solutions with a bold automotive identity.
+          Built to help you look professional, attract buyers, and turn inventory faster.
+        </p>
+
+        <div class="tags">
+          <div class="tag">Used Cars</div>
+          <div class="tag">Auto Parts</div>
+          <div class="tag">Imports</div>
+          <div class="tag">Fast WhatsApp Contact</div>
+        </div>
+
+        <div class="buttons">
+          <a class="btn btn-red" href="#inventory">View Inventory</a>
+          <a class="btn btn-dark" href="https://wa.me/19734770621">Contact on WhatsApp</a>
+        </div>
+
+        <div class="info-grid">
+          <div class="info-box">
+            <span>Location</span>
+            <strong>105 N 10th St, Paterson, NJ 07522</strong>
+          </div>
+          <div class="info-box">
+            <span>Phone / WhatsApp</span>
+            <strong>973-477-0621</strong>
+          </div>
+          <div class="info-box">
+            <span>Best For</span>
+            <strong>Fast-turn used car sales</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="pro-card">
+        <div class="mini">Dealer-style layout</div>
+        <h2>Pro Homepage Preview</h2>
+
+        <div class="pro-item">
+          <span>New Arrivals</span>
+          <strong>Fresh inventory section for your latest cars</strong>
+        </div>
+
+        <div class="pro-item">
+          <span>Budget Buyers</span>
+          <strong>Dedicated “Cars Under $6000” section</strong>
+        </div>
+
+        <div class="pro-item">
+          <span>Direct Sales</span>
+          <strong>WhatsApp-first contact flow for fast leads</strong>
+        </div>
       </div>
     </div>
   </section>
 
-  <section className="mx-auto max-w-7xl px-6 py-16 md:px-10">
-    <div className="grid gap-6 md:grid-cols-[1.15fr_0.85fr]">
-      <div className="rounded-[2rem] border border-zinc-800 bg-zinc-950 p-8">
-        <p className="text-sm uppercase tracking-[0.24em] text-red-400">Visit or Contact</p>
-        <h2 className="mt-2 text-3xl font-bold">Serious buyers need fast contact</h2>
-        <p className="mt-4 max-w-2xl leading-7 text-zinc-300">
+  <section>
+    <div class="container">
+      <div class="section-top">
+        <div class="eyebrow">Why this version helps</div>
+        <h2>Built to look more like a real dealer website</h2>
+        <p>
+          This upgraded version is designed for trust, faster lead generation, and better presentation of your inventory and services.
+        </p>
+      </div>
+
+      <div class="cards-3">
+        <div class="feature-card">
+          <h3>New Arrivals</h3>
+          <p>Show your newest inventory first so buyers immediately see fresh options.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Cars Under $6000</h3>
+          <p>A high-converting section for budget-focused buyers in New Jersey.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Auto Parts & Sourcing</h3>
+          <p>Promote available parts, special orders, and import support in one place.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="inventory-section" id="inventory">
+    <div class="container">
+      <div class="section-top">
+        <div class="eyebrow">Inventory</div>
+        <h2>Featured Vehicles</h2>
+        <p>Replace these demo cards with your real photos and current pricing.</p>
+      </div>
+
+      <div class="inventory-grid">
+        <div class="car-card">
+          <div class="car-image">
+            <div class="badge">Available Now</div>
+          </div>
+          <div class="car-body">
+            <div class="car-top">
+              <div>
+                <h3>2017 Nissan Rogue S</h3>
+                <div class="miles">160,000 miles</div>
+              </div>
+              <div class="price">$6,999</div>
+            </div>
+            <div class="car-note">Clean daily-driver SUV with strong value.</div>
+            <a class="btn btn-red" href="https://wa.me/19734770621">Ask on WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="car-card">
+          <div class="car-image">
+            <div class="badge">Available Now</div>
+          </div>
+          <div class="car-body">
+            <div class="car-top">
+              <div>
+                <h3>2014 Acura RDX Tech 4WD</h3>
+                <div class="miles">227,000 miles</div>
+              </div>
+              <div class="price">$5,499</div>
+            </div>
+            <div class="car-note">Premium SUV priced to move fast.</div>
+            <a class="btn btn-red" href="https://wa.me/19734770621">Ask on WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="car-card">
+          <div class="car-image">
+            <div class="badge">Available Now</div>
+          </div>
+          <div class="car-body">
+            <div class="car-top">
+              <div>
+                <h3>2019 Kia Forte LXS</h3>
+                <div class="miles">125,000 miles</div>
+              </div>
+              <div class="price">$7,900</div>
+            </div>
+            <div class="car-note">Modern sedan with attractive resale appeal.</div>
+            <a class="btn btn-red" href="https://wa.me/19734770621">Ask on WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container contact-grid">
+      <div class="contact-box">
+        <div class="eyebrow">Visit or Contact</div>
+        <h2>Serious buyers need fast contact</h2>
+        <p style="color:#ccc; margin-top: 12px;">
           Add your real inventory photos, Instagram, TikTok, Facebook Marketplace link, and a Google Map here to make the website feel complete and trustworthy.
         </p>
 
-        <div className="mt-8 grid gap-4 md:grid-cols-2">
-          <div className="rounded-2xl border border-zinc-800 bg-black p-5">
-            <p className="text-sm text-zinc-400">Business</p>
-            <p className="mt-2 font-semibold">SKM Enterprises Group</p>
+        <div class="contact-info-grid">
+          <div class="contact-info">
+            <span>Business</span>
+            <strong>SKM Enterprises Group</strong>
           </div>
-          <div className="rounded-2xl border border-zinc-800 bg-black p-5">
-            <p className="text-sm text-zinc-400">Phone / WhatsApp</p>
-            <p className="mt-2 font-semibold">973-477-0621</p>
+          <div class="contact-info">
+            <span>Phone / WhatsApp</span>
+            <strong>973-477-0621</strong>
           </div>
-          <div className="rounded-2xl border border-zinc-800 bg-black p-5">
-            <p className="text-sm text-zinc-400">Address</p>
-            <p className="mt-2 font-semibold">105 N 10th St, Paterson, NJ 07522</p>
+          <div class="contact-info">
+            <span>Address</span>
+            <strong>105 N 10th St, Paterson, NJ 07522</strong>
           </div>
-          <div className="rounded-2xl border border-zinc-800 bg-black p-5">
-            <p className="text-sm text-zinc-400">Sales Channel</p>
-            <p className="mt-2 font-semibold">WhatsApp / Marketplace / Social Media</p>
+          <div class="contact-info">
+            <span>Sales Channel</span>
+            <strong>WhatsApp / Marketplace / Social Media</strong>
           </div>
         </div>
       </div>
 
-      <div className="rounded-[2rem] border border-red-900/30 bg-gradient-to-b from-red-950 to-black p-8">
-        <p className="text-sm uppercase tracking-[0.24em] text-red-300">Next upgrades</p>
-        <h3 className="mt-2 text-2xl font-bold">Ready for photos, TikTok, and Google Maps</h3>
-        <ul className="mt-6 space-y-3 text-sm leading-6 text-zinc-200">
-          <li>• Add real vehicle photos on each card</li>
-          <li>• Add floating WhatsApp button</li>
-          <li>• Add Google Maps location section</li>
-          <li>• Add TikTok and Instagram links</li>
-          <li>• Add a clean “Apply for financing” section later</li>
+      <div class="upgrade-box">
+        <div class="eyebrow" style="color:#ffb3b3;">Next upgrades</div>
+        <h2>Ready for photos, TikTok, and Google Maps</h2>
+        <ul>
+          <li>Add real vehicle photos on each card</li>
+          <li>Add floating WhatsApp button</li>
+          <li>Add Google Maps location section</li>
+          <li>Add TikTok and Instagram links</li>
+          <li>Add a clean financing section later</li>
         </ul>
-        <a
-          href="https://wa.me/19734770621"
-          className="mt-8 inline-flex w-full items-center justify-center rounded-2xl bg-white px-5 py-3 font-semibold text-black transition hover:opacity-90"
-        >
+        <a class="btn" style="background:#fff;color:#000;width:100%;text-align:center;" href="https://wa.me/19734770621">
           Contact SKM on WhatsApp
         </a>
       </div>
     </div>
   </section>
-</div>
 
-); }
+  <div class="footer">
+    © SKM Enterprises Group — Used Cars • Auto Parts • Imports
+  </div>
+
+  <a class="floating-whatsapp" href="https://wa.me/19734770621">WhatsApp</a>
+
+</body>
+</html>
