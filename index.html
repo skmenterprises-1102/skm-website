@@ -1,642 +1,241 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SKM Enterprises Group</title>
   <meta name="description" content="SKM Enterprises Group - Used cars, auto parts and imports in Paterson, New Jersey." />
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background: #000;
-      color: #fff;
-      line-height: 1.5;
-    }
-
-    a {
-      text-decoration: none;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    .hero {
-      background: linear-gradient(135deg, #000 0%, #111 60%, #2b0000 100%);
-      padding: 60px 0 50px;
-      border-bottom: 1px solid #2a2a2a;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 30px;
-      align-items: center;
-    }
-
-    .logo-wrap {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 20px;
-    }
-
-    .logo-wrap img {
-      width: 78px;
-      height: 78px;
-      object-fit: contain;
-      border-radius: 14px;
-      border: 1px solid rgba(255, 0, 0, 0.3);
-      background: #050505;
-    }
-
-    .eyebrow {
-      color: #ff5a5a;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 12px;
-      margin-bottom: 6px;
-    }
-
-    h1 {
-      font-size: 52px;
-      line-height: 1.05;
-      color: #fff;
-      margin-bottom: 18px;
-    }
-
-    .hero p.main-text {
-      color: #ddd;
-      font-size: 18px;
-      max-width: 680px;
-      margin-bottom: 22px;
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 24px;
-    }
-
-    .tag {
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: #111;
-      border: 1px solid #2a2a2a;
-      color: #ddd;
-      font-size: 14px;
-    }
-
-    .buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 26px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 14px 22px;
-      border-radius: 14px;
-      font-weight: bold;
-      transition: 0.2s ease;
-    }
-
-    .btn-red {
-      background: #ff1a1a;
-      color: #fff;
-    }
-
-    .btn-dark {
-      background: #111;
-      border: 1px solid #333;
-      color: #fff;
-    }
-
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-
-    .info-box {
-      background: rgba(10, 10, 10, 0.8);
-      border: 1px solid #2a2a2a;
-      border-radius: 18px;
-      padding: 18px;
-    }
-
-    .info-box span {
-      color: #aaa;
-      font-size: 13px;
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    .info-box strong {
-      color: #fff;
-      font-size: 15px;
-    }
-
-    .pro-card {
-      background: rgba(12, 12, 12, 0.9);
-      border: 1px solid #2a2a2a;
-      border-radius: 28px;
-      padding: 24px;
-    }
-
-    .pro-card .mini {
-      color: #ff5a5a;
-      text-transform: uppercase;
-      font-size: 12px;
-      letter-spacing: 2px;
-      margin-bottom: 8px;
-    }
-
-    .pro-card h2 {
-      font-size: 28px;
-      margin-bottom: 18px;
-    }
-
-    .pro-item {
-      background: #070707;
-      border: 1px solid #242424;
-      border-radius: 20px;
-      padding: 18px;
-      margin-bottom: 12px;
-    }
-
-    .pro-item span {
-      color: #aaa;
-      font-size: 13px;
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    .pro-item strong {
-      font-size: 18px;
-    }
-
-    section {
-      padding: 60px 0;
-    }
-
-    .section-top {
-      margin-bottom: 28px;
-    }
-
-    .section-top .eyebrow {
-      margin-bottom: 8px;
-    }
-
-    .section-top h2 {
-      font-size: 38px;
-      margin-bottom: 12px;
-    }
-
-    .section-top p {
-      color: #bbb;
-      max-width: 780px;
-    }
-
-    .cards-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .feature-card {
-      background: #0c0c0c;
-      border: 1px solid #242424;
-      border-radius: 26px;
-      padding: 24px;
-    }
-
-    .feature-card h3 {
-      font-size: 22px;
-      margin-bottom: 10px;
-    }
-
-    .feature-card p {
-      color: #ccc;
-    }
-
-    .inventory-section {
-      background: #090909;
-      border-top: 1px solid #1d1d1d;
-      border-bottom: 1px solid #1d1d1d;
-    }
-
-    .inventory-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
-    .car-card {
-      background: #000;
-      border: 1px solid #252525;
-      border-radius: 28px;
-      overflow: hidden;
-    }
-
-    .car-image {
-  height: 220px;
-  background: linear-gradient(135deg, #1a1a1a, #050505);
-  position: relative;
-  overflow: hidden;
-
-    }
-.car-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-    .badge {
-      background: #2a0000;
-      color: #ffb3b3;
-      border: 1px solid rgba(255, 0, 0, 0.25);
-      padding: 8px 12px;
-      border-radius: 999px;
-      font-size: 12px;
-    }
-
-    .car-body {
-      padding: 22px;
-    }
-
-    .car-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 10px;
-      margin-bottom: 14px;
-    }
-
-    .car-top h3 {
-      font-size: 22px;
-    }
-
-    .miles {
-      color: #aaa;
-      margin-top: 6px;
-    }
-
-    .price {
-      color: #ff2e2e;
-      font-size: 28px;
-      font-weight: 800;
-      white-space: nowrap;
-    }
-
-    .car-note {
-      color: #ccc;
-      margin-bottom: 16px;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 24px;
-    }
-
-    .contact-box,
-    .upgrade-box {
-      border-radius: 28px;
-      padding: 28px;
-    }
-
-    .contact-box {
-      background: #0d0d0d;
-      border: 1px solid #262626;
-    }
-
-    .upgrade-box {
-      background: linear-gradient(180deg, #2a0000 0%, #050505 100%);
-      border: 1px solid rgba(255, 0, 0, 0.18);
-    }
-
-    .contact-info-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-      margin-top: 22px;
-    }
-
-    .contact-info {
-      background: #000;
-      border: 1px solid #242424;
-      border-radius: 18px;
-      padding: 18px;
-    }
-
-    .contact-info span {
-      color: #aaa;
-      display: block;
-      font-size: 13px;
-      margin-bottom: 8px;
-    }
-
-    .upgrade-box ul {
-      margin: 20px 0 24px 18px;
-      color: #eee;
-    }
-
-    .upgrade-box li {
-      margin-bottom: 10px;
-    }
-
-    .footer {
-      padding: 22px 0 50px;
-      color: #888;
-      text-align: center;
-      font-size: 14px;
-    }
-
-    .floating-whatsapp {
-      position: fixed;
-      right: 16px;
-      bottom: 16px;
-      background: #ff1a1a;
-      color: #fff;
-      padding: 14px 18px;
-      border-radius: 999px;
-      font-weight: bold;
-      box-shadow: 0 10px 30px rgba(255, 0, 0, 0.25);
-      z-index: 999;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; background: #000; color: #fff; line-height: 1.5; }
+    a { text-decoration: none; }
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    .hero { background: linear-gradient(135deg, #000 0%, #111 60%, #2b0000 100%); padding: 60px 0 50px; border-bottom: 1px solid #2a2a2a; }
+    .hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 30px; align-items: center; }
+    .logo-wrap { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+    .logo-wrap img { width: 78px; height: 78px; object-fit: contain; border-radius: 14px; border: 1px solid rgba(255, 0, 0, 0.3); background: #050505; }
+    .eyebrow { color: #ff5a5a; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; margin-bottom: 6px; }
+    h1 { font-size: 52px; line-height: 1.05; color: #fff; margin-bottom: 18px; }
+    .hero p.main-text { color: #ddd; font-size: 18px; max-width: 680px; margin-bottom: 22px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px; }
+    .tag { padding: 10px 14px; border-radius: 999px; background: #111; border: 1px solid #2a2a2a; color: #ddd; font-size: 14px; }
+    .buttons { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 26px; }
+    .btn { display: inline-block; padding: 14px 22px; border-radius: 14px; font-weight: bold; transition: 0.2s ease; }
+    .btn-red { background: #ff1a1a; color: #fff; }
+    .btn-dark { background: #111; border: 1px solid #333; color: #fff; }
+    .info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .info-box { background: rgba(10, 10, 10, 0.8); border: 1px solid #2a2a2a; border-radius: 18px; padding: 18px; }
+    .info-box span { color: #aaa; font-size: 13px; display: block; margin-bottom: 8px; }
+    .info-box strong { color: #fff; font-size: 15px; }
+    .pro-card { background: rgba(12, 12, 12, 0.9); border: 1px solid #2a2a2a; border-radius: 28px; padding: 24px; }
+    .pro-card .mini { color: #ff5a5a; text-transform: uppercase; font-size: 12px; letter-spacing: 2px; margin-bottom: 8px; }
+    .pro-card h2 { font-size: 28px; margin-bottom: 18px; }
+    .pro-item { background: #070707; border: 1px solid #242424; border-radius: 20px; padding: 18px; margin-bottom: 12px; }
+    .pro-item span { color: #aaa; font-size: 13px; display: block; margin-bottom: 8px; }
+    .pro-item strong { font-size: 18px; }
+    section { padding: 60px 0; }
+    .section-top { margin-bottom: 28px; }
+    .section-top .eyebrow { margin-bottom: 8px; }
+    .section-top h2 { font-size: 38px; margin-bottom: 12px; }
+    .section-top p { color: #bbb; max-width: 780px; }
+    .cards-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .feature-card { background: #0c0c0c; border: 1px solid #242424; border-radius: 26px; padding: 24px; }
+    .feature-card h3 { font-size: 22px; margin-bottom: 10px; }
+    .feature-card p { color: #ccc; }
+    .inventory-section { background: #090909; border-top: 1px solid #1d1d1d; border-bottom: 1px solid #1d1d1d; }
+    .inventory-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .car-card { background: #000; border: 1px solid #252525; border-radius: 28px; overflow: hidden; }
+    .car-image { height: 220px; background: linear-gradient(135deg, #1a1a1a, #050505); position: relative; overflow: hidden; }
+    .car-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .badge { position: absolute; left: 18px; bottom: 18px; background: #2a0000; color: #ffb3b3; border: 1px solid rgba(255, 0, 0, 0.25); padding: 8px 12px; border-radius: 999px; font-size: 12px; }
+    .car-body { padding: 22px; }
+    .car-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; margin-bottom: 14px; }
+    .car-top h3 { font-size: 22px; }
+    .miles { color: #aaa; margin-top: 6px; }
+    .price { color: #ff2e2e; font-size: 28px; font-weight: 800; white-space: nowrap; }
+    .car-note { color: #ccc; margin-bottom: 16px; }
+    .contact-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 24px; }
+    .contact-box, .upgrade-box { border-radius: 28px; padding: 28px; }
+    .contact-box { background: #0d0d0d; border: 1px solid #262626; }
+    .upgrade-box { background: linear-gradient(180deg, #2a0000 0%, #050505 100%); border: 1px solid rgba(255, 0, 0, 0.18); }
+    .contact-info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 22px; }
+    .contact-info { background: #000; border: 1px solid #242424; border-radius: 18px; padding: 18px; }
+    .contact-info span { color: #aaa; display: block; font-size: 13px; margin-bottom: 8px; }
+    .upgrade-box ul { margin: 20px 0 24px 18px; color: #eee; }
+    .upgrade-box li { margin-bottom: 10px; }
+    .footer { padding: 22px 0 50px; color: #888; text-align: center; font-size: 14px; }
+    .floating-whatsapp { position: fixed; right: 16px; bottom: 16px; background: #ff1a1a; color: #fff; padding: 14px 18px; border-radius: 999px; font-weight: bold; box-shadow: 0 10px 30px rgba(255, 0, 0, 0.25); z-index: 999; }
+    .social-buttons { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
     @media (max-width: 980px) {
-      .hero-grid,
-      .contact-grid,
-      .cards-3,
-      .inventory-grid,
-      .info-grid,
-      .contact-info-grid {
-        grid-template-columns: 1fr;
-      }
-
-      h1 {
-        font-size: 38px;
-      }
-
-      .section-top h2 {
-        font-size: 30px;
-      }
-
-      .price {
-        font-size: 24px;
-      }
-
-      .logo-wrap {
-        align-items: flex-start;
-      }
+      .hero-grid, .contact-grid, .cards-3, .inventory-grid, .info-grid, .contact-info-grid { grid-template-columns: 1fr; }
+      h1 { font-size: 38px; }
+      .section-top h2 { font-size: 30px; }
+      .price { font-size: 24px; }
+      .logo-wrap { align-items: flex-start; }
     }
   </style>
 </head>
 <body>
-
   <section class="hero">
     <div class="container hero-grid">
       <div>
         <div class="logo-wrap">
-          <img src="IMG_20260303_080510_986.webp" alt="SKM Enterprises Group logo">
+          <img id="site-logo" src="IMG_20260303_080510_986.webp" alt="SKM Enterprises Group logo">
           <div>
             <div class="eyebrow">Paterson, New Jersey</div>
             <h1>SKM Enterprises Group</h1>
           </div>
-        </div>
+        </div><p class="main-text">
+      Used cars, auto parts, and import solutions with a bold automotive identity.
+      Built to help you look professional, attract buyers, and turn inventory faster.
+    </p>
 
-        <p class="main-text">
-          Used cars, auto parts, and import solutions with a bold automotive identity.
-          Built to help you look professional, attract buyers, and turn inventory faster.
-        </p>
+    <div class="tags">
+      <div class="tag">Used Cars</div>
+      <div class="tag">Auto Parts</div>
+      <div class="tag">Imports</div>
+      <div class="tag">Fast WhatsApp Contact</div>
+    </div>
 
-        <div class="tags">
-          <div class="tag">Used Cars</div>
-          <div class="tag">Auto Parts</div>
-          <div class="tag">Imports</div>
-          <div class="tag">Fast WhatsApp Contact</div>
-        </div>
+    <div class="buttons">
+      <a class="btn btn-red" href="#inventory">View Inventory</a>
+      <a class="btn btn-dark" href="https://wa.me/19734770621">Contact on WhatsApp</a>
+    </div>
 
-        <div class="buttons">
-          <a class="btn btn-red" href="#inventory">View Inventory</a>
-          <a class="btn btn-dark" href="https://wa.me/19734770621">Contact on WhatsApp</a>
-        </div>
-
-        <div class="info-grid">
-          <div class="info-box">
-            <span>Location</span>
-            <strong>105 N 10th St, Paterson, NJ 07522</strong>
-          </div>
-          <div class="info-box">
-            <span>Phone / WhatsApp</span>
-            <strong>973-477-0621</strong>
-          </div>
-          <div class="info-box">
-            <span>Best For</span>
-            <strong>Fast-turn used car sales</strong>
-          </div>
-        </div>
+    <div class="info-grid">
+      <div class="info-box">
+        <span>Location</span>
+        <strong>105 N 10th St, Paterson, NJ 07522</strong>
       </div>
-
-      <div class="pro-card">
-        <div class="mini">Dealer-style layout</div>
-        <h2>Pro Homepage Preview</h2>
-
-        <div class="pro-item">
-          <span>New Arrivals</span>
-          <strong>Fresh inventory section for your latest cars</strong>
-        </div>
-
-        <div class="pro-item">
-          <span>Budget Buyers</span>
-          <strong>Dedicated “Cars Under $6000” section</strong>
-        </div>
-
-        <div class="pro-item">
-          <span>Direct Sales</span>
-          <strong>WhatsApp-first contact flow for fast leads</strong>
-        </div>
+      <div class="info-box">
+        <span>Phone / WhatsApp</span>
+        <strong>973-477-0621</strong>
+      </div>
+      <div class="info-box">
+        <span>Best For</span>
+        <strong>Fast-turn used car sales</strong>
       </div>
     </div>
-  </section>
+  </div>
 
-  <section>
+  <div class="pro-card">
+    <div class="mini">Dealer-style layout</div>
+    <h2>Pro Homepage Preview</h2>
+    <div class="pro-item"><span>New Arrivals</span><strong>Fresh inventory section for your latest cars</strong></div>
+    <div class="pro-item"><span>Budget Buyers</span><strong>Dedicated “Cars Under $6000” section</strong></div>
+    <div class="pro-item"><span>Direct Sales</span><strong>WhatsApp-first contact flow for fast leads</strong></div>
+  </div>
+</div>
+
+  </section>  <section>
     <div class="container">
       <div class="section-top">
         <div class="eyebrow">Why this version helps</div>
         <h2>Built to look more like a real dealer website</h2>
-        <p>
-          This upgraded version is designed for trust, faster lead generation, and better presentation of your inventory and services.
-        </p>
-      </div>
+        <p>This upgraded version is designed for trust, faster lead generation, and better presentation of your inventory and services.</p>
+      </div><div class="cards-3">
+    <div class="feature-card"><h3>New Arrivals</h3><p>Show your newest inventory first so buyers immediately see fresh options.</p></div>
+    <div class="feature-card"><h3>Cars Under $6000</h3><p>A high-converting section for budget-focused buyers in New Jersey.</p></div>
+    <div class="feature-card"><h3>Auto Parts & Sourcing</h3><p>Promote available parts, special orders, and import support in one place.</p></div>
+  </div>
+</div>
 
-      <div class="cards-3">
-        <div class="feature-card">
-          <h3>New Arrivals</h3>
-          <p>Show your newest inventory first so buyers immediately see fresh options.</p>
-        </div>
-        <div class="feature-card">
-          <h3>Cars Under $6000</h3>
-          <p>A high-converting section for budget-focused buyers in New Jersey.</p>
-        </div>
-        <div class="feature-card">
-          <h3>Auto Parts & Sourcing</h3>
-          <p>Promote available parts, special orders, and import support in one place.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="inventory-section" id="inventory">
+  </section>  <section class="inventory-section" id="inventory">
     <div class="container">
       <div class="section-top">
         <div class="eyebrow">Inventory</div>
         <h2>Featured Vehicles</h2>
-        <p>Replace these demo cards with your real photos and current pricing.</p>
+        <p>Add or remove cars by editing only the list inside the script section at the bottom.</p>
       </div>
-
-      <div class="inventory-grid">
-        <div class="car-card">
-          <div class="car-image">
-            <div class="badge">Available Now</div>
-          </div>
-          <div class="car-body">
-            <div class="car-top">
-              <div>
-                <h3>2017 Nissan Rogue S</h3>
-                <div class="miles">160,000 miles</div>
-              </div>
-              <div class="price">$6,999</div>
-            </div>
-            <div class="car-note">Clean daily-driver SUV with strong value.</div>
-            <a class="btn btn-red" href="https://wa.me/19734770621">Ask on WhatsApp</a>
-          </div>
-        </div>
-
-        <div class="car-card">
-          <div class="car-image">
-            <div class="badge">Available Now</div>
-          </div>
-          <div class="car-body">
-            <div class="car-top">
-              <div>
-                <h3>2014 Acura RDX Tech 4WD</h3>
-                <div class="miles">227,000 miles</div>
-              </div>
-              <div class="price">$5,499</div>
-            </div>
-            <div class="car-note">Premium SUV priced to move fast.</div>
-            <a class="btn btn-red" href="https://wa.me/19734770621">Ask on WhatsApp</a>
-          </div>
-        </div>
-
-        <div class="car-card">
-          <div class="car-image">
-            <div class="badge">Available Now</div>
-          </div>
-          <div class="car-body">
-            <div class="car-top">
-              <div>
-                <h3>2019 Kia Forte LXS</h3>
-                <div class="miles">125,000 miles</div>
-              </div>
-              <div class="price">$7,900</div>
-            </div>
-            <div class="car-note">Modern sedan with attractive resale appeal.</div>
-            <a class="btn btn-red" href="https://wa.me/19734770621">Ask on WhatsApp</a>
-          </div>
-        </div>
-      </div>
+      <div class="inventory-grid" id="inventory-grid"></div>
     </div>
-  </section>
-
-  <section>
+  </section>  <section>
     <div class="container contact-grid">
       <div class="contact-box">
         <div class="eyebrow">Visit or Contact</div>
         <h2>Serious buyers need fast contact</h2>
-        <p style="color:#ccc; margin-top: 12px;">
-          Add your real inventory photos, Instagram, TikTok, Facebook Marketplace link, and a Google Map here to make the website feel complete and trustworthy.
-        </p>
-
-        <div class="contact-info-grid">
-          <div class="contact-info">
-            <span>Business</span>
-            <strong>SKM Enterprises Group</strong>
-          </div>
-          <div class="contact-info">
-            <span>Phone / WhatsApp</span>
-            <strong>973-477-0621</strong>
-          </div>
-          <div class="contact-info">
-            <span>Address</span>
-            <strong>105 N 10th St, Paterson, NJ 07522</strong>
-          </div>
-          <div class="contact-info">
-            <span>Sales Channel</span>
-            <strong>WhatsApp / Marketplace / Social Media</strong>
-          </div>
-        </div>
-      </div>
-
-      <div class="upgrade-box">
-        <div class="eyebrow" style="color:#ffb3b3;">Next upgrades</div>
-        <h2>Ready for photos, TikTok, and Google Maps</h2>
-        <ul>
-          <li>Add real vehicle photos on each card</li>
-          <li>Add floating WhatsApp button</li>
-          <li>Add Google Maps location section</li>
-          <li>Add TikTok and Instagram links</li>
-          <li>Add a clean financing section later</li>
-        </ul>
-        <a class="btn" style="background:#fff;color:#000;width:100%;text-align:center;" href="https://wa.me/19734770621">
-          Contact SKM on WhatsApp
-        </a>
-        <br><br>
-
-<a class="btn btn-dark" href="https://www.tiktok.com/@skm.enterprises.g">
-Watch Cars on TikTok
-</a>
-
-<br><br>
-
-<a class="btn btn-dark" href="https://instagram.com/skm.enterprises.g">
-Follow on Instagram
-</a>
-
-<br><br>
-
-<a class="btn btn-dark" href="https://facebook.com/marketplace">
-View Marketplace Listings
-</a>
-
-<br><br>
-
-<a class="btn btn-dark" href="https://maps.google.com/?q=105+N+10th+St+Paterson+NJ">
-Find Us on Google Maps
-</a>
-      </div>
+        <p style="color:#ccc; margin-top: 12px;">Add your real inventory photos, Instagram, TikTok, Facebook Marketplace link, and a Google Map here to make the website feel complete and trustworthy.</p><div class="contact-info-grid">
+      <div class="contact-info"><span>Business</span><strong>SKM Enterprises Group</strong></div>
+      <div class="contact-info"><span>Phone / WhatsApp</span><strong>973-477-0621</strong></div>
+      <div class="contact-info"><span>Address</span><strong>105 N 10th St, Paterson, NJ 07522</strong></div>
+      <div class="contact-info"><span>Sales Channel</span><strong>WhatsApp / Marketplace / Social Media</strong></div>
     </div>
-  </section>
-
-  <div class="footer">
-    © SKM Enterprises Group — Used Cars • Auto Parts • Imports
   </div>
 
-  <a class="floating-whatsapp" href="https://wa.me/19734770621">WhatsApp</a>
+  <div class="upgrade-box">
+    <div class="eyebrow" style="color:#ffb3b3;">Connect everywhere</div>
+    <h2>Social and location links</h2>
+    <div class="social-buttons">
+      <a class="btn btn-dark" href="https://www.tiktok.com/@skm.enterprises.g">TikTok</a>
+      <a class="btn btn-dark" href="https://instagram.com/skm.enterprises.g">Instagram</a>
+      <a class="btn btn-dark" href="https://facebook.com/marketplace">Marketplace</a>
+      <a class="btn btn-dark" href="https://maps.google.com/?q=105+N+10th+St+Paterson+NJ">Google Maps</a>
+    </div>
+    <a class="btn" style="background:#fff;color:#000;width:100%;text-align:center; margin-top:18px;" href="https://wa.me/19734770621">Contact SKM on WhatsApp</a>
+  </div>
+</div>
 
-</body>
+  </section>  <div class="footer">© SKM Enterprises Group — Used Cars • Auto Parts • Imports</div>
+  <a class="floating-whatsapp" href="https://wa.me/19734770621">WhatsApp</a>  <script>
+    const cars = [
+      {
+        name: '2017 Nissan Rogue S',
+        price: '$6,999',
+        miles: '160,000 miles',
+        note: 'Clean daily-driver SUV with strong value.',
+        photo: 'rogue.jpg',
+        alt: '2017 Nissan Rogue S',
+        badge: 'Available Now',
+        whatsappText: "Hi I'm interested in the 2017 Nissan Rogue S"
+      },
+      {
+        name: '2014 Acura RDX Tech 4WD',
+        price: '$5,499',
+        miles: '227,000 miles',
+        note: 'Premium SUV priced to move fast.',
+        photo: 'rdx.jpg',
+        alt: '2014 Acura RDX Tech 4WD',
+        badge: 'Available Now',
+        whatsappText: "Hi I'm interested in the 2014 Acura RDX Tech 4WD"
+      },
+      {
+        name: '2019 Kia Forte LXS',
+        price: '$7,900',
+        miles: '125,000 miles',
+        note: 'Modern sedan with attractive resale appeal.',
+        photo: 'forte.jpg',
+        alt: '2019 Kia Forte LXS',
+        badge: 'Available Now',
+        whatsappText: "Hi I'm interested in the 2019 Kia Forte LXS"
+      }
+    ];
+
+    const inventoryGrid = document.getElementById('inventory-grid');
+
+    function renderCars() {
+      inventoryGrid.innerHTML = cars.map((car) => {
+        const encodedText = encodeURIComponent(car.whatsappText);
+        return `
+          <div class="car-card">
+            <div class="car-image">
+              <img src="${car.photo}" alt="${car.alt}">
+              <div class="badge">${car.badge}</div>
+            </div>
+            <div class="car-body">
+              <div class="car-top">
+                <div>
+                  <h3>${car.name}</h3>
+                  <div class="miles">${car.miles}</div>
+                </div>
+                <div class="price">${car.price}</div>
+              </div>
+              <div class="car-note">${car.note}</div>
+              <a class="btn btn-red" href="https://wa.me/19734770621?text=${encodedText}">Ask on WhatsApp</a>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    renderCars();
+  </script></body>
 </html>
